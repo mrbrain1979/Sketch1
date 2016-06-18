@@ -52,9 +52,9 @@ void loop() {
 	{
 		if (brightness <= 253)
 			brightness = brightness + fadeAmount;
-		else brightness = 255;
+		else brightness = 255;    // chek lights on
 	}
-	if (now.hour() >= 13 && now.hour() < 20)
+	if (now.hour() >= 13 && now.hour() < 20)   // chek lights on
 	{
 		brightness = 255;
 	}
@@ -67,12 +67,12 @@ void loop() {
 
 	}
 	if (now.hour() >= 22 && now.minute() > 20)
-		brightness = 0;
-	Serial.print(now.hour(), DEC);
+		brightness = 0; // lights off
+	Serial.print(now.hour(), DEC); // for debug info
 	Serial.print('-');
 	Serial.println(now.minute(), DEC);
 	Serial.println(brightness, DEC);
-	analogWrite(led, brightness);
+	analogWrite(led, brightness); // пишем в пин led текущее значение яркости.
 	delay(60000);
 
 }
